@@ -11,7 +11,7 @@ const auth = firebase.auth();
 
 //Sends verification emails in the same language as the language used in the
 //user's device
-auth.useDeviceLanguage();
+// auth.useDeviceLanguage();
 
 //Function wrapping all the signup parts including the email verification email
 //triggered once the user clicks on the signup button
@@ -23,31 +23,31 @@ const signUpFunction = () => {
     auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
         console.log('Signed Up Successfully !');
-        sendVerificationEmail();
+        // sendVerificationEmail();
     })
     .catch(error => {
         console.error(error);
         //Shows a modal as feedback if there's an error
-        failureModal.style.display = 'flex';
-        setTimeout(()=>{
-            failureModal.style.display = 'none';
-        }, 1000);
+        // failureModal.style.display = 'flex';
+        // setTimeout(()=>{
+        //     failureModal.style.display = 'none';
+        // }, 1000);
     })
 }
 
 //Function called right after the signUpWithEmailAndPassword to send verification emails
-const sendVerificationEmail = () => {
-    //Built in firebase function responsible for sending the verification email
-    auth.currentUser.sendEmailVerification()
-    .then(() => {
-        console.log('Verification Email Sent Successfully !');
-        //redirecting the user to the profile page once everything is done correctly
-        window.location.assign('../profile');
-    })
-    .catch(error => {
-        console.error(error);
-    })
-}
+// const sendVerificationEmail = () => {
+//     //Built in firebase function responsible for sending the verification email
+//     auth.currentUser.sendEmailVerification()
+//     .then(() => {
+//         console.log('Verification Email Sent Successfully !');
+//         //redirecting the user to the profile page once everything is done correctly
+//         window.location.assign('../profile');
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     })
+// }
 
 signUp.addEventListener('click', signUpFunction);
 

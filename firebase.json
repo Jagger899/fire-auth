@@ -5,6 +5,12 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ], 
+    "rewrites": [
+      {
+        "sourse":"/signup",
+        "destination":"./signup.html"
+      }
     ]
   }
 }
